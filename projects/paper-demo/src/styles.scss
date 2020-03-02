@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+// lib
+
+@import "projects/paper/src/lib/core/core";
+@include core();
+
+@import "projects/paper/src/lib/popover/popover";
+@include popover();
+
+@import "projects/paper/src/lib/modal/modal";
+@include modal();
+
+@import "projects/paper/src/lib/window/window";
+@include window();
+
+// local
+
+@mixin bw-button() {
+  button {
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 1em;
+    box-shadow: 0 2px 2px 1px rgba(black, 0.16);
+
+    border: none;
+    color: black;
+    user-select: none;
+
+    > * {
+      pointer-events: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: black;
+      color: white;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin bw-select() {
+  select {
+    appearance: none;
+    font-size: 1em;
+    padding: 10px 20px;
+
+  }
+}
+
+@include bw-button();
+@include bw-select();
+
+:root {
+  --cdk-popover-arrow-size: 20px;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+.overlay-fullscreen {
+  width: calc(100% - 20px);
+}

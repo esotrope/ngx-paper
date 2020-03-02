@@ -1,0 +1,14 @@
+.options {
+  display: flex;
+  margin-bottom: 10em;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-columns: max-content 1fr max-content;
+
+  width: 100%;
+  height: 500px;
+
+}

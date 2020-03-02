@@ -1,0 +1,53 @@
+<section>
+
+  <div class="options">
+    <form [formGroup]="formGroup">
+      <select
+        formControlName="position"
+      >
+        <option
+          *ngFor="let position of ['top', 'right', 'bottom', 'left']"
+          [ngValue]="position"
+        >{{position}}</option>
+      </select>
+    </form>
+    <button
+      type="button"
+      (click)="onToggleAllButtonClick()"
+    >Toggle All</button>
+  </div>
+
+  <div class="grid">
+    <div
+      *ngFor="let i of [1,2,3,4,5,6,7,8,9]"
+      class="grid-cell"
+      [ngStyle]="getStyle(i)"
+    >
+      <button
+        type="button"
+        [popover]="smallPopoverTemplate"
+        [popoverPrimaryPosition]="formGroup.value.position"
+      >
+        Popover
+      </button>
+    </div>
+  </div>
+
+
+
+</section>
+
+<ng-template
+  #smallPopoverTemplate
+  let-closeable
+>
+  <div>
+    <p>
+      Farm-to-table celiac tousled blue bottle air plant.
+    </p>
+  </div>
+  <button
+    type="button"
+    (click)="closeable.detach()"
+  >Close</button>
+</ng-template>

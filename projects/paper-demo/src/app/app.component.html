@@ -1,0 +1,126 @@
+<h1>Paper</h1>
+
+<h2>Window</h2>
+<button type="button" [window]="windowTemplate">Window</button>
+<ng-template #windowTemplate let-window>
+  <div class="content" cdkDrag cdkDragRootElement=".cdk-overlay-pane">
+    <h3 cdkDragHandle>Window Content</h3>
+    <p>Drag Me : J</p>
+    <button type="button" (click)="window.detach()">Close</button>
+  </div>
+</ng-template>
+
+
+
+<!--<h2>Modal</h2>-->
+<!--<app-modal-section></app-modal-section>-->
+
+<!--<h2>Popover</h2>-->
+<!--<app-popover-section></app-popover-section>-->
+
+<!--<div class="context-menu" keyboardNavigableList>-->
+<!--  <button-->
+<!--    *ngFor="let i of [1, 2, 3, 4]"-->
+<!--    keyboardNavigableListItem-->
+<!--    type="button"-->
+<!--  >Option {{i}}</button>-->
+<!--</div>-->
+
+<!--<h2>Menu</h2>-->
+
+  <!-- what sucks:
+    open state tracking
+    open/close method missing
+    need to explicitly bind click
+
+    origin should define config:
+     popover
+      popoverPositions (implicit)
+
+    would like to abstract away the trap focus
+
+  -->
+<!--  <button-->
+<!--    type="button"-->
+<!--    #origin="cdkOverlayOrigin"-->
+<!--    cdkOverlayOrigin-->
+<!--    (click)="open = !open"-->
+<!--  >-->
+<!--    cdkConnectedOverlay-->
+<!--  </button>-->
+<!--  <ng-template-->
+<!--    #overlay="cdkConnectedOverlay"-->
+<!--    cdkConnectedOverlay-->
+<!--    cdkConnectedOverlayPanelClass="cdk-popover"-->
+<!--    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"-->
+<!--    [cdkConnectedOverlayOrigin]="origin"-->
+<!--    [cdkConnectedOverlayPositions]="popoverPositions"-->
+<!--    [cdkConnectedOverlayHasBackdrop]="true"-->
+<!--    [cdkConnectedOverlayPush]="true"-->
+<!--    [cdkConnectedOverlayOpen]="open"-->
+<!--    (backdropClick)="open = false"-->
+<!--    (positionChange)="setPush(origin.elementRef.nativeElement, overlay.overlayRef.overlayElement)"-->
+<!--  >-->
+<!--    <div-->
+<!--      cdkTrapFocus-->
+<!--      cdkTrapFocusAutoCapture-->
+<!--    >-->
+<!--      <button-->
+<!--        type="button"-->
+<!--        (click)="open = false"-->
+<!--      >Close</button>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+<!--  <button-->
+<!--    type="button"-->
+<!--    [contextMenu]="menuTemplate"-->
+<!--  >-->
+<!--    Context Menu-->
+<!--  </button>-->
+
+<!--  <button-->
+<!--    type="button"-->
+<!--    [menu]="menuTemplate"-->
+<!--  >-->
+<!--    Menu-->
+<!--  </button>-->
+<!--  <ng-template-->
+<!--    #menuTemplate-->
+<!--    let-closeable-->
+<!--  >-->
+<!--    <div class="context-menu" keyboardNavigableList>-->
+<!--      <button-->
+<!--        *ngFor="let i of [1, 2, 3, 4]"-->
+<!--        keyboardNavigableListItem-->
+<!--        type="button"-->
+<!--        (click)="closeable.detach()"-->
+<!--      >Option {{i}}</button>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+
+<!--  <button-->
+<!--    type="button"-->
+<!--    [modal]="cdkModalFullscreenTemplate"-->
+<!--    cdkConnectedOverlayPanelClass="overlay-fullscreen"-->
+<!--  >-->
+<!--    Modal (fullscreen)-->
+<!--  </button>-->
+<!--  <ng-template-->
+<!--    #cdkModalFullscreenTemplate-->
+<!--    let-closeable-->
+<!--  >-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      (click)="closeable.detach()"-->
+<!--    >Close</button>-->
+<!--  </ng-template>-->
+
+<!--  <button-->
+<!--    type="button"-->
+<!--    (click)="onModalServiceButtonClick()"-->
+<!--  >-->
+<!--    Modal (service)-->
+<!--  </button>-->
+

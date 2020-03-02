@@ -1,0 +1,10 @@
+{
+  "name": "paper",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/cdk": "^9.0.0",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
+    "tslib": "^1.10.0"
+  }
+}

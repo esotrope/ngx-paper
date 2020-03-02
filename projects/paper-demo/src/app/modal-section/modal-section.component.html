@@ -1,0 +1,67 @@
+<button
+  type="button"
+  [modal]="modalTemplate"
+>
+  Modal
+</button>
+<ng-template
+  #modalTemplate
+  let-closeable
+>
+  <h2>Modal</h2>
+  <p>
+    Modal width will grow until it maxes out.
+  </p>
+  <button
+    type="button"
+    (click)="closeable.detach()"
+  >Close</button>
+</ng-template>
+
+<button
+  type="button"
+  [modal]="wideModalTemplate"
+>
+  Wide Modal
+</button>
+<ng-template
+  #wideModalTemplate
+  let-closeable
+>
+  <h2>Wide Modal</h2>
+  <p>
+    Content that is so wide that it extends to the edge of the screen when placed inside this modal container.
+  </p>
+  <button
+    type="button"
+    (click)="closeable.detach()"
+  >Close</button>
+</ng-template>
+
+<button
+  type="button"
+  (click)="openModalWithService()"
+>
+  Modal Service + Component
+</button>
+
+<button
+  type="button"
+  (click)="openModalTemplateWithService(templateModal)"
+>
+  Modal Service + Template
+</button>
+<ng-template
+  #templateModal
+  let-closeable
+  let-data="data"
+>
+  <h2>Template Modal</h2>
+  <p>
+    This template modal was opened with a service.
+  </p>
+  <button
+    type="button"
+    (click)="closeable.detach()"
+  >Close</button>
+</ng-template>

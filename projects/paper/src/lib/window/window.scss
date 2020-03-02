@@ -1,0 +1,8 @@
+@use "sass:map";
+
+@mixin window() {
+  .window {
+    width: fit-content;
+    height: fit-content;
+  }
+}

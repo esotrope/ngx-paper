@@ -1,0 +1,73 @@
+@use 'sass:map';
+@use "sass:meta";
+
+@mixin popover(
+  $config: (
+    arrow-size: 20px,
+    border-radius: 4px,
+    box-shadow: none,
+    padding: 20px,
+    max-width: auto
+  )
+) {
+
+  $arrow-size: map.get($config, arrow-size);
+
+  .popover {
+
+    border-radius: map.get($config, border-radius);
+    padding: map.get($config, padding);
+    max-width: map.get($config, max-width);
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: inherit;
+      z-index: -1;
+
+      width: var(--cdk-popover-arrow-size, $arrow-size);
+      height: var(--cdk-popover-arrow-size, $arrow-size);
+    }
+
+    &.top {
+      margin-bottom: calc(var(--cdk-popover-arrow-size, $arrow-size) * 0.5);
+      &:before {
+        transform-origin: bottom left;
+        transform: rotate(-45deg);
+        left: calc(50% + var(--overflow-x, 0px));
+        bottom: calc(var(--cdk-popover-arrow-size, $arrow-size) * -0.5);
+      }
+    }
+
+    &.right {
+      margin-left: calc(var(--cdk-popover-arrow-size, $arrow-size) * 0.5);
+      &:before {
+        transform-origin: top left;
+        transform: rotate(-45deg);
+        top: calc(50% + var(--overflow-y, 0px));
+        left: calc(var(--cdk-popover-arrow-size, $arrow-size) * -0.5);
+      }
+    }
+
+    &.bottom {
+      margin-top: calc(var(--cdk-popover-arrow-size, $arrow-size) * 0.5);
+      &:before {
+        transform-origin: top left;
+        transform: rotate(45deg);
+        left: calc(50% + var(--overflow-x, 0px));
+        top: calc(var(--cdk-popover-arrow-size, $arrow-size) * -0.5);
+      }
+    }
+
+    &.left {
+      margin-right: calc(var(--cdk-popover-arrow-size, $arrow-size) * 0.5);
+      &:before {
+        transform-origin: top right;
+        transform: rotate(45deg);
+        top: calc(50% + var(--overflow-y, 0px));
+        right: calc(var(--cdk-popover-arrow-size, $arrow-size) * -0.5);
+      }
+    }
+
+  }
+}
